@@ -1,9 +1,5 @@
 // Slick slider init
-$(document).ready(function(){
-  jQuery('.btn').on('click', function(){
-      $(this).toggleClass('opened');
-    });
-});
+
 
 $('.slider').slick({
   arrows: true,
