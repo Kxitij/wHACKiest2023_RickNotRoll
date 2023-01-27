@@ -2,21 +2,56 @@
 <html lang="en" >
 <head>
   <meta charset="UTF-8">
-  <title>CodePen - 3D Carousel</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
-<link rel='stylesheet' href='https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&amp;display=swap'><link rel="stylesheet" href="./style.css">
+  <title>CodePen - Motion blur effect using SVG filters</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+<link rel='stylesheet' href='//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.css'><link rel="stylesheet" href="./style.css">
 
 </head>
 <body>
 <!-- partial:index.partial.html -->
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+           width="0" height="0" viewBox="0 0 1366 768" xml:space="preserve">
+  <!-- Gaussian blur filter progression to animate -->
+  <defs>
+    <filter id="blur0">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="0 0" />
+    </filter>
+    <filter id="blur1">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="5 0" />
+    </filter>
+    <filter id="blur2">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="12 0" />
+    </filter>
+    <filter id="blur3">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="20 0" />
+    </filter>
+    <filter id="blur4">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="35 1" />
+    </filter>
+    <filter id="blur5">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="50 1" />
+    </filter>
+  </defs>
+</svg>
 <form class="searchform cf">
   <input type="text" placeholder="Search for your community...">
   <button type="submit">Search</button>
-</form>
+</form><div id="root"></div>
 
-
+<div class="slider">
+  <div>
+    <img src="https://images.unsplash.com/photo-1446770145316-10a05382c470?dpr=1&auto=format&fit=crop&w=900&h=450&q=80&cs=tinysrgb&crop=" alt="">
+  </div>
+  <div>
+    <img src="https://images.unsplash.com/photo-1455717974081-0436a066bb96?dpr=1&auto=format&fit=crop&w=900&h=450&q=80&cs=tinysrgb&crop=" alt="">
+  </div>
+  <div>
+    <img src="https://images.unsplash.com/photo-1477420086945-b99c643e8a3d?dpr=1&auto=format&fit=crop&w=900&h=450&q=80&cs=tinysrgb&crop=" alt="">
+  </div>
+</div>
 <!-- partial -->
-  <script type="module" src="./script.js"></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+<script src='//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.min.js'></script><script  src="./script.js"></script>
 
 </body>
 </html>

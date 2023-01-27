@@ -1,21 +1,25 @@
+* {
+  outline: none;
+  box-sizing: border-box;
+}
+
 body {
-  width: 100vw;
-  height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
+  height: 100vh;
   overflow: hidden;
-  background-image: linear-gradient(45deg, #8B5CF6, #EC4899);
-  font-family: "Montserrat", sans-serif;
+  background-color: #FF3CAC;
+  background-image: linear-gradient(225deg, #FF3CAC 0%, #784BA0 50%, #2B86C5 100%);
 }
 .searchform {
   background:#f4f4f4;
   background:rgba(244,244,244,.79);
   border: 1px solid #d3d3d3;
   padding: 2px 5px;
-	position: absolute;
-  left: 0;
-  top: 0;
+	position: fixed;
+  left: 40%;
+  top: 20px;
   width:339px;
   box-shadow:0 4px 9px rgba(0,0,0,.37);
   -moz-box-shadow:0 4px 9px rgba(0,0,0,.37);
@@ -24,6 +28,71 @@ body {
   -moz-border-radius: 10px;
   -webkit-border-radius: 10px
 }
+a.btn, a:link {
+  text-decoration: none;
+  font-family: Helvetica;
+  font-weight: 500;
+  background: linear-gradient(90deg, rgba(221,2,183,1) 0%, rgba(133,2,123,1) 100%);
+  padding: 15px 15px 15px 20px;
+  color: white;
+  border-radius: 40px;
+  font-size: 14px;
+}
+
+
+.closed .vertical {
+  transition: all 0.3s ease-in-out;
+  transform: rotate(-90deg);
+}
+.closed .horizontal {
+  transition: all 0.3s ease-in-out;
+  transform: rotate(-90deg);
+  opacity: 1;
+}
+
+.opened .vertical {
+  transition: all 0.3s ease-in-out;
+  transform: rotate(90deg);
+}
+
+.opened .horizontal {
+  transition: all 0.3s ease-in-out;
+  transform: rotate(90deg);
+  opacity: 0;
+}
+
+.plus-container {
+  background-color: violet;
+  width: 30px;
+  height: 30px;
+  display: inline-block;
+  vertical-align: middle;
+  position: relative;
+  border-radius: 50px;
+  margin-left: 15px ;
+}
+
+.vertical {
+  position: absolute;
+  top: 19%;
+  left: 46.666667%;
+  height: 18px;
+  width: 2px;
+  background-color: white;
+  transition: all 1s ease-in-out;
+  transform: rotate(-90deg);
+}
+
+.horizontal {
+  position: absolute;
+  top: 46.666667%;
+  left: 19%;
+  height: 2px;
+  width: 18px;
+  background-color: white;
+  transition: all 1s ease-in-out;
+  transform: rotate(-90deg);
+} 
 
 .searchform input, .searchform button {
 	float: left
@@ -87,63 +156,113 @@ body {
   box-sizing: border-box;
 }
 
-.carousel {
-  position: relative;
-  width: 23rem;
-  height: 23rem;
-  perspective: 500px;
-  transform-style: preserve-3d;
+.slick-track {
+  will-change: transform;
 }
 
-.card-container {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  transform: rotateY(calc(var(--offset) * 50deg)) scaleY(calc(1 + var(--abs-offset) * -0.4)) translateZ(calc(var(--abs-offset) * -30rem)) translateX(calc(var(--direction) * -5rem));
-  filter: blur(calc(var(--abs-offset) * 1rem));
-  transition: all 0.3s ease-out;
+.slick-list {
+  overflow: visible;
+  will-change: transform;
 }
 
-.card {
-  width: 100%;
-  height: 100%;
-  padding: 2rem;
-  background-color: hsl(280deg, 40%, calc(100% - var(--abs-offset) * 50%));
-  border-radius: 1rem;
-  color: #9CA3AF;
-  text-align: justify;
-  transition: all 0.3s ease-out;
+.slick-slide {
+  padding: 0 100px;
+  width: 100vw;
+  filter: drop-shadow(0px 10px 40px rgba(0, 0, 0, 0.55));
 }
-.card h2 {
-  text-align: center;
-  font-size: 2rem;
-  font-weight: bold;
-  margin: 0 0 0.7em;
-  color: #1F2937;
-}
-.card p, .card h2 {
-  transition: all 0.3s ease-out;
-  opacity: var(--active);
+.slick-slide img {
+  max-width: 100%;
+  margin: 0 auto;
 }
 
-.nav {
-  color: white;
-  font-size: 5rem;
-  position: absolute;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+[type=button] {
+  position: fixed;
   top: 50%;
-  z-index: 2;
+  z-index: 10;
+  width: 70px;
+  height: 70px;
+  overflow: hidden;
+  border: 0;
+  text-indent: -9999px;
+  background-color: black;
+  background-position: center;
+  background-repeat: no-repeat;
   cursor: pointer;
-  user-select: none;
-  background: unset;
-  border: unset;
+  opacity: 0.9;
+  transform: translateY(-50%);
+  transition: all 0.25s ease;
 }
-.nav.left {
-  transform: translateX(-100%) translatey(-50%);
+[type=button]:hover {
+  opacity: 1;
 }
-.nav.right {
+[type=button].slick-next {
   right: 0;
-  transform: translateX(100%) translatey(-50%);
+  background-image: url(data:image/svg+xml;base64,PHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjI0IiBoZWlnaHQ9IjI0IiB2aWV3Qm94PSIwIDAgMjQgMjQiPjx0aXRsZT5jaGV2cm9uLXJpZ2h0PC90aXRsZT48cGF0aCBmaWxsPSIjZmZmZmZmIiBkPSJNMTUuNzA2IDExLjI5NGwtNi02Yy0wLjM4Ny0wLjM4Ny0xLjAyNS0wLjM4Ny0xLjQxMyAwcy0wLjM4NyAxLjAyNSAwIDEuNDEzbDUuMjk0IDUuMjk0LTUuMjk0IDUuMjk0Yy0wLjM4NyAwLjM4Ny0wLjM4NyAxLjAyNSAwIDEuNDEzIDAuMTk0IDAuMTk0IDAuNDUgMC4yOTQgMC43MDYgMC4yOTRzMC41MTMtMC4xIDAuNzA2LTAuMjk0bDYtNmMwLjM5NC0wLjM4NyAwLjM5NC0xLjAyNSAwLTEuNDEzeiI+PC9wYXRoPjwvc3ZnPg==);
+}
+[type=button].slick-next:hover {
+  right: -5px;
+}
+[type=button].slick-prev {
+  left: 0;
+  background-image: url(data:image/svg+xml;base64,PHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjI0IiBoZWlnaHQ9IjI0IiB2aWV3Qm94PSIwIDAgMjQgMjQiPjx0aXRsZT5jaGV2cm9uLWxlZnQ8L3RpdGxlPjxwYXRoIGZpbGw9IiNmZmZmZmYiIGQ9Ik0xMC40MTMgMTJsNS4yOTQtNS4yOTRjMC4zODctMC4zODcgMC4zODctMS4wMjUgMC0xLjQxM3MtMS4wMjUtMC4zODctMS40MTMgMGwtNiA2Yy0wLjM4NyAwLjM4Ny0wLjM4NyAxLjAyNSAwIDEuNDEzbDYgNmMwLjE5NCAwLjE5NCAwLjQ1IDAuMjk0IDAuNzA2IDAuMjk0czAuNTEzLTAuMSAwLjcwNi0wLjI5NGMwLjM4Ny0wLjM4NyAwLjM4Ny0xLjAyNSAwLTEuNDEzbC01LjI5NC01LjI5NHoiPjwvcGF0aD48L3N2Zz4=);
+}
+[type=button].slick-prev:hover {
+  left: -5px;
+}
+
+@-webkit-keyframes motion-blur {
+  0% {
+    filter: url(#blur0);
+    transform: scale(1, 1);
+  }
+  15% {
+    filter: url(#blur1);
+    transform: scale(1, 0.98);
+  }
+  30% {
+    filter: url(#blur2);
+    transform: scale(1, 0.93);
+  }
+  45% {
+    filter: url(#blur3);
+    transform: scale(1.1, 0.9);
+  }
+  60% {
+    filter: url(#blur4);
+    transform: scale(1.2, 0.88);
+  }
+  75%, 100% {
+    filter: url(#blur5);
+    transform: scale(1.35, 0.85);
+  }
+}
+
+@keyframes motion-blur {
+  0% {
+    filter: url(#blur0);
+    transform: scale(1, 1);
+  }
+  15% {
+    filter: url(#blur1);
+    transform: scale(1, 0.98);
+  }
+  30% {
+    filter: url(#blur2);
+    transform: scale(1, 0.93);
+  }
+  45% {
+    filter: url(#blur3);
+    transform: scale(1.1, 0.9);
+  }
+  60% {
+    filter: url(#blur4);
+    transform: scale(1.2, 0.88);
+  }
+  75%, 100% {
+    filter: url(#blur5);
+    transform: scale(1.35, 0.85);
+  }
+}
+.do-transition {
+  animation: motion-blur 0.1s linear forwards, motion-blur 0.4s linear reverse forwards 0.1s;
 }
