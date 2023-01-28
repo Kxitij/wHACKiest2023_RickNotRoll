@@ -12,5 +12,3 @@
 #Website URL:
 [PeerNet](https://kxitij.github.io/wHACKiest2023_RickNotRoll/)
 
-
-#IDEAS TO BE IMPLEMENTED
