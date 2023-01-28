@@ -13,9 +13,9 @@ $('.slider').slick({
 });
 
 $('.slider')
-  .on('beforeChange', function(event, slick, currentSlide, nextSlide){
+  .on('beforeChange', function (event, slick, currentSlide, nextSlide) {
     $('.slick-list').addClass('do-transition')
   })
-  .on('afterChange', function(){
+  .on('afterChange', function () {
     $('.slick-list').removeClass('do-transition')
   });

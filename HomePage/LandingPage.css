@@ -13,7 +13,7 @@ body {
     position: absolute;
     top: 0;
     width: 100%;
-    z-index:1;
+    z-index: 1;
 }
 
 .navbar-right {
@@ -23,7 +23,7 @@ body {
 
 .navbar-right a {
     text-decoration: none;
-    padding:30px;
+    padding: 30px;
     color: #fff;
     font-family: Arial;
     font-weight: 500;
@@ -106,14 +106,14 @@ body {
     text-align: center;
     text-transform: uppercase;
     font-weight: bold;
-    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
-.footer .box-container{
+.footer .box-container {
     padding: auto;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(22rem, 1fr));
-    gap:2rem;
+    gap: 2rem;
 }
 
 @keyframes fadein {
@@ -131,6 +131,7 @@ body {
         transform: translateY(100px) rotate(-12deg);
         opacity: 0;
     }
+
     100% {
         transform: translateY(0) rotate(-12deg);
         opacity: 1;
