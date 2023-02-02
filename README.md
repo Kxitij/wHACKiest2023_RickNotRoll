@@ -15,7 +15,7 @@
 
 ### Future Scope:
 >1. We can add more communities.
-2. We also plan on adding an accomodations category so that students can have a seamless experience in looking for places to stay with roommates of their choice where people can list out their flats or PGs.
-3. In the Community Blogs we plan on adding a "post" option where the community admins can post the activities conducted within their community and specify criiteria for joining, if any.
+>2. We also plan on adding an accomodations category so that students can have a seamless experience in looking for places to stay with roommates of their choice where people can list out their flats or PGs.
+>3. In the Community Blogs we plan on adding a "post" option where the community admins can post the activities conducted within their community and specify criiteria for joining, if any.
 
 
